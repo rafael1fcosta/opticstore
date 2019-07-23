@@ -3,11 +3,18 @@ package org.opticstore.dao;
 import org.opticstore.model.Customer;
 import org.opticstore.model.Prescription;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class DaoImpl implements Dao {
 
     private Map<Integer, Customer> customerMap;
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    public DaoImpl() {
+        customerMap = new HashMap<>();
+    }
 
     // -----------------------------------------------------------------------------------------------------------------
 
@@ -23,6 +30,6 @@ public class DaoImpl implements Dao {
 
     @Override
     public Customer findCustomer(Integer id) {
-        return null;
+        return customerMap.get(id);
     }
 }

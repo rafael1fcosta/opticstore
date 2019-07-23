@@ -2,5 +2,9 @@ package org.opticstore.service;
 
 public interface Service {
 
-    boolean authenticate(String id);
+    boolean authenticate(Double id);
+
+    boolean getClientPrescription();
+
+    void setClientPrescription(Double sphere, Double cil, Double axis);
 }

@@ -3,6 +3,8 @@ package org.opticstore.view;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class GenericView implements View {
 
@@ -10,23 +12,27 @@ public class GenericView implements View {
     // -----------------------------------------------------------------------------------------------------------------
 
     @Override
-    public void display(String message) {
+    public void display(UserMessages message) {
 
-        System.out.println(message);
+        System.out.println(message.getMessage());
     }
 
     @Override
-    public String getCustomerOption() {
+    public Double getCustomerOption() {
 
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        Scanner input = new Scanner(System.in);
+        Double number;
 
         try {
-            return bufferedReader.readLine();
+            number = input.nextDouble();
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (InputMismatchException e) {
+            System.err.println("Not a number. Try again");
+            number = getCustomerOption();
         }
 
-        throw new IllegalArgumentException();
+        System.out.println(number);
+
+        return number;
     }
 }
