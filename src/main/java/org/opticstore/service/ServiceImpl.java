@@ -5,6 +5,10 @@ import org.opticstore.model.Customer;
 import org.opticstore.model.Prescription;
 import org.opticstore.model.PrescriptionImpl;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class ServiceImpl implements Service {
 
     private Dao dao;
@@ -30,19 +34,23 @@ public class ServiceImpl implements Service {
     @Override
     public boolean getClientPrescription() {
 
-        if (loggedInCustomer.getPrescription() != null) {
-            return true;
-        }
+        return loggedInCustomer.getPrescription() != null;
 
-        return false;
     }
 
     @Override
     public void setClientPrescription(Double sphere, Double cil, Double axis) {
 
-        //Prescription prescription = new PrescriptionImpl(sphere, cil, axis); //TODO: client input in double..?
+        Prescription prescription = new PrescriptionImpl(sphere, cil, axis);
 
-        //loggedInCustomer.setPrescription(prescription);
+        loggedInCustomer.setPrescription(prescription);
+
+        DecimalFormat decimalFormat = new DecimalFormat("#.00");
+
+
+        System.out.println("sphere " + decimalFormat.format(prescription.getSphere()));
+        System.out.println("cil " + prescription.getCil());
+        System.out.println("axis " + prescription.getAxis());
     }
 
 }

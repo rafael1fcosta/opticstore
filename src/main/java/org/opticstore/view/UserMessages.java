@@ -8,7 +8,8 @@ public enum UserMessages {
     SETTING_PRESCRIPTION("Let's set your prescription"),
     ENTER_SPHERE("Enter sphere:"),
     ENTER_CIL("Enter cil:"),
-    ENTER_AXIS("Enter axis");
+    ENTER_AXIS("Enter axis"),
+    CHOOSE_EYEWEAR("Choose EyeWear:");
 
     // -----------------------------------------------------------------------------------------------------------------
 

@@ -1,8 +1,7 @@
 package org.opticstore.view;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import org.opticstore.controller.UserOptions;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -18,7 +17,13 @@ public class GenericView implements View {
     }
 
     @Override
-    public Double getCustomerOption() {
+    public void display(UserOptions message) {
+
+        System.out.println( (int) message.getOption() + message.getMessage());
+    }
+
+    @Override
+    public Double getCustomerInput() {
 
         Scanner input = new Scanner(System.in);
         Double number;
@@ -28,7 +33,7 @@ public class GenericView implements View {
 
         } catch (InputMismatchException e) {
             System.err.println("Not a number. Try again");
-            number = getCustomerOption();
+            number = getCustomerInput();
         }
 
         System.out.println(number);

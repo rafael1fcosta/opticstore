@@ -1,10 +1,14 @@
 package org.opticstore.model;
 
+import java.text.DecimalFormat;
+
 public class PrescriptionImpl implements Prescription {
 
     private double sphere;
     private double cil;
     private double axis;
+
+    private final DecimalFormat decimalFormat = new DecimalFormat("#.00");
 
     // -----------------------------------------------------------------------------------------------------------------
 
