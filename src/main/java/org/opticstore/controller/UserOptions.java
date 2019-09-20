@@ -17,6 +17,8 @@ public enum UserOptions {
         this.message = message;
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
+
     public double getOption() {
         return option;
     }

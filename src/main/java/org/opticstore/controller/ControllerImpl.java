@@ -22,9 +22,15 @@ public class ControllerImpl extends AbstractController {
             return;
         }
 
+        System.out.println("-------------------");
+
         setPrescription();
 
+        System.out.println("-------------------");
+
         chooseEyeWear();
+
+        System.out.println("-------------------");
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -50,17 +56,25 @@ public class ControllerImpl extends AbstractController {
 
         view.display(UserMessages.SETTING_PRESCRIPTION);
 
-        Double sphere = displayAndGetInput(UserMessages.ENTER_SPHERE);
-        Double cil = displayAndGetInput(UserMessages.ENTER_CIL);
-        Double axis = displayAndGetInput(UserMessages.ENTER_AXIS);
+        Double sphere = displayAndGetInput(UserMessages.SPHERE);
+        Double cil = displayAndGetInput(UserMessages.CIL);
+        Double axis = displayAndGetInput(UserMessages.AXIS);
 
         service.setClientPrescription(sphere, cil, axis);
     }
 
-    private Double displayAndGetInput(UserMessages message) {
+    private Double displayAndGetInput(UserMessages option) {
 
-        view.display(message);
-        return view.getCustomerInput();
+        view.display(option);
+
+        Double input = view.getCustomerInput();
+
+        if (!PrescriptionRestrictions.isInLimit(option, input)) {
+            view.display(UserMessages.INVALID_VALUE);
+            return displayAndGetInput(option);
+        }
+
+        return input;
     }
 
     private void chooseEyeWear() {
@@ -72,7 +86,6 @@ public class ControllerImpl extends AbstractController {
         Double choice = view.getCustomerInput();
 
         try {
-
             handleEyeWearChoice(choice);
 
         } catch (IllegalArgumentException e) {
@@ -84,7 +97,6 @@ public class ControllerImpl extends AbstractController {
     private void handleEyeWearChoice(Double choice) throws IllegalArgumentException {
 
         UserOptions userOption = UserOptions.getUserOption(choice);
-
 
         switch (userOption) {
 

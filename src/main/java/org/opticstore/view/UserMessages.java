@@ -6,10 +6,11 @@ public enum UserMessages {
     ENTER_LOGIN("Enter Login number:"),
     LOGIN_FAILED("Login failed, try again"),
     SETTING_PRESCRIPTION("Let's set your prescription"),
-    ENTER_SPHERE("Enter sphere:"),
-    ENTER_CIL("Enter cil:"),
-    ENTER_AXIS("Enter axis"),
-    CHOOSE_EYEWEAR("Choose EyeWear:");
+    SPHERE("Enter sphere:"),
+    CIL("Enter cil:"),
+    AXIS("Enter axis"),
+    CHOOSE_EYEWEAR("Choose EyeWear:"),
+    INVALID_VALUE("That value is not valid.");
 
     // -----------------------------------------------------------------------------------------------------------------
 
