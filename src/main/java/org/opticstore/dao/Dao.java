@@ -1,13 +1,9 @@
 package org.opticstore.dao;
 
-import org.opticstore.model.Customer;
-import org.opticstore.model.Prescription;
 
-public interface Dao {
+public interface Dao<T> {
 
-    void addCustomer(Customer customer);
+    void add(T element);
 
-    void addPrescription(Integer customerId, Prescription prescription);
-
-    Customer findCustomer(Integer id);
+    T find(Integer id);
 }

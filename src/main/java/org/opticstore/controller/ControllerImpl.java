@@ -50,7 +50,7 @@ public class ControllerImpl extends AbstractController {
 
     private void setPrescription() {
 
-        if (service.getClientPrescription()) {
+        if (service.clientHasPrescription()) {
             return;
         }
 
