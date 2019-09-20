@@ -1,9 +1,6 @@
 package org.opticstore.service;
 
 import org.opticstore.dao.AbstractDao;
-import org.opticstore.dao.CustomerDao;
-import org.opticstore.dao.Dao;
-import org.opticstore.dao.PrescriptionDao;
 
 public interface Service {
 

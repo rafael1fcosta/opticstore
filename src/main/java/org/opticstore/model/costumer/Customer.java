@@ -2,9 +2,7 @@ package org.opticstore.model.costumer;
 
 import org.opticstore.model.AbstractModel;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Customer extends AbstractModel {
@@ -22,5 +20,9 @@ public class Customer extends AbstractModel {
 
     public Map<Integer, Prescription> getPrescriptionMap() {
         return prescriptionMap;
+    }
+
+    public String getName() {
+        return name;
     }
 }

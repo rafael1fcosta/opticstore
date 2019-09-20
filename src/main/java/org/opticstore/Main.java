@@ -4,7 +4,6 @@ import org.opticstore.controller.Controller;
 import org.opticstore.controller.ControllerImpl;
 import org.opticstore.dao.AbstractDao;
 import org.opticstore.dao.CustomerDao;
-import org.opticstore.dao.Dao;
 import org.opticstore.dao.PrescriptionDao;
 import org.opticstore.model.costumer.Customer;
 import org.opticstore.model.costumer.Prescription;

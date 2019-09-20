@@ -1,6 +1,5 @@
 package org.opticstore.dao;
 
-import org.opticstore.model.Model;
 import org.opticstore.model.costumer.Customer;
 
 import java.util.HashMap;
@@ -10,10 +9,10 @@ public abstract class AbstractDao<T> implements Dao<T> {
 
     private Customer loggedInCustomer;
 
-    private Map<Integer, Customer> customerMap = new HashMap<>();
+    private static Map<Integer, Customer> customerMap = new HashMap<>();
 
 
-    Map<Integer, Customer> getCustomerMap() {
+    public Map<Integer, Customer> getCustomerMap() {
         return customerMap;
     }
 
